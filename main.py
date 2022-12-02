@@ -12,7 +12,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 window = Tk()
-window.geometry('1200x600')
+window.geometry('950x400')
 cell_height = 20  # not under control
 cell_width = 8
 
@@ -177,7 +177,7 @@ def start():
         btn_start.place(x=110, y=10)
         btn_start_alternative.place(x=160, y=10)
     btn_stop = Button(window, text="Stop", command=stop)
-    btn_stop.place(x=10, y=400)
+    btn_stop.place(x=110, y=10)
     animation.save()
 
 
@@ -217,9 +217,9 @@ def start_alternative():
         plt_widget.destroy()
         btn_stop.destroy()
         btn_start.place(x=110, y=10)
-        btn_start_alternative.place(x=110, y=10)
+        btn_start_alternative.place(x=160, y=10)
     btn_stop = Button(window, text="Stop", command=stop)
-    btn_stop.place(x=10, y=400)
+    btn_stop.place(x=110, y=10)
     animation.save()
 
 
@@ -237,13 +237,13 @@ if __name__ == "__main__":
     btn_start_alternative.place(x=160, y=10)
 
     total_label = Label(window, text="Species in total")
-    total_label.place(x=900, y=500)
+    total_label.place(x=700, y=300)
     total = Entry(window, state="readonly", textvariable=total_text)
-    total.place(x=1000, y=500)
+    total.place(x=800, y=300)
 
     time_label = Label(window, text="Time")
-    time_label.place(x=900, y=550)
+    time_label.place(x=700, y=350)
     time = Entry(window, state="readonly", textvariable=time_text)
-    time.place(x=1000, y=550)
+    time.place(x=800, y=350)
 
     window.mainloop()
