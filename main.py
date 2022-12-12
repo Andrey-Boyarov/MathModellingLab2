@@ -54,7 +54,10 @@ def paint_first_table(current_window, number: int, x: int, y: int):
 
         increase_row = Entry(current_window, width=cell_width)
         increase_row.place(x=x + cell_width * 7, y=y + row * cell_height)
-        increase_row.insert(0, "-0.1")
+        if row % 2 == 0:
+            increase_row.insert(0, "-0.01")
+        else:
+            increase_row.insert(0, "0.01")
         increase.append(increase_row)
 
     return number_of_species, increase
@@ -123,12 +126,11 @@ def get_value():
         for k in range(len(g_number_of_species)):
             dNj = dNj + g_impact[j][k] * g_number_of_species[j] * g_number_of_species[k]
         dN.append(dNj)
-    for j in range(len(g_number_of_species)):
-        a = g_number_of_species[j]
-        if a < 2:
+    for j in range(len(dN)):
+        if g_number_of_species[j] < 2:
             g_number_of_species[j] = 0
         else:
-            g_number_of_species[j] = a + dN[j] + g_increase[j]
+            g_number_of_species[j] = (g_number_of_species[j] + dN[j]) * (1 + g_increase[j])
 
 
 def start():
